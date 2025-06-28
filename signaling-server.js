@@ -8,10 +8,11 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: [
-      'http://localhost:3000',
-      'https://dev-suits.web.app'
-    ], // أو حدد نطاق موقعك
+    origin:'*',
+    // [
+    //  'http://localhost:3000',
+    //  'https://dev-suits.web.app'
+    //], // أو حدد نطاق موقعك
     methods: ['GET', 'POST'],
   },
 });
@@ -47,7 +48,7 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => {
   console.log(`🚀 Socket.IO server running on port ${PORT}`);
 });
